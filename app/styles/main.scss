@@ -2,25 +2,61 @@
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
-// Custom Styles
-body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+
+/* --------  WHUDDUP VARIABLES?!  -------*/
+
+$primary-font: 'Open Sans', sans-serif;
+
+
+
+
+
+/* --------   // END VARIABLES?!    -------*/
+
+
+
+/* --------  DEFAULT TYPOGRAPHY  -------*/
+
+h1 {
+  font-size: 2em;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 600px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+h4 {
+  font-size: .75em;
+}
+
+h5 {
+  font-size: .5em;
+}
+
+/* -------- // END TYPOGRAPHY  -------*/
+
+header {
   h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+  font-family: $primary-font;  
+  margin: 5% 10%;
   }
+}
+
+
+article {
+  margin: 0 10%;
+}
+
+
+fieldset {
+  border: none;
 }
