@@ -31,11 +31,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1em;
+  font-size: 1.25em;
 }
 
 h4 {
-  font-size: .75em;
+  font-size: 1em;
 }
 
 h5 {
@@ -46,17 +46,58 @@ h5 {
 
 header {
   h1 {
-  font-family: $primary-font;  
+
+  font-family: $primary-font;
   margin: 5% 10%;
   }
 }
 
+#postContainer{
+  h3{
+    color: #03566B;
+    font-family:$primary-font;
+    padding: 0 0 .25em 0;
+  }
 
-article {
-  margin: 0 10%;
+  h4{
+    font-family: Arial;
+    font-weight: 100;
+  }
 }
 
+section {
+  margin: 0 10%;
+}
+aside {
+  float: left;
+  width: 40%;
+}
+article {
+  float: left;
+  padding: 2em;
+  width: 60%;
+  fieldset {
+    border: none;
+  }
 
-fieldset {
-  border: none;
+  form {
+
+    input[type=text]{
+      padding: .25em;
+      width: 50%;
+    }
+
+    textarea {
+      margin: .5em 0;
+      padding: .25em;
+      width: 50%;
+    }
+
+    input[type=submit] {
+      background-color:#96A95A;
+      border: none;
+      border-radius: 6px;
+      padding: .25em 1em;
+    }
+  }
 }

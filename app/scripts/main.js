@@ -40,5 +40,5 @@ var template = _.template($('#postTemplate').html());
       });
 
 
-    $('#postContainer').html(compiledTemplate.reverse());
+    $('#postContainer').html(compiledTemplate);
     });
