@@ -5,11 +5,18 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>myBlog</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
@@ -44,15 +51,18 @@
     <h3><%= title %></h3><h5><%= sentAt %></h5>
     <h4><%= post %></h4>
   </script>
-  <!-- build:js scripts/vendor.js -->
-  <!-- bower:js -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
   <script src="../bower_components/jquery/dist/jquery.js"></script>
   <script src="../bower_components/underscore/underscore.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:js scripts/main.js -->
+
+    <!-- build:js scripts/main.js -->
   <script src="scripts/main.js"></script>
-  <!-- endbuild -->
+    <!-- endbuild -->
 
 </body>
 </html>
