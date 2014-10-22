@@ -63,19 +63,31 @@ header {
     font-family: Arial;
     font-weight: 100;
   }
+
+  h5 {
+    font-family: Arial;
+    color: #777;
+    padding: 0 .5em;
+  }
+
+  h3, h5 {
+  display: inline-block;
+  }
 }
 
 section {
   margin: 0 10%;
 }
+
 aside {
   float: left;
-  width: 40%;
+  width: 50%;
 }
+
 article {
   float: left;
   padding: 2em;
-  width: 60%;
+  width: 50%;
   fieldset {
     border: none;
   }
@@ -83,14 +95,18 @@ article {
   form {
 
     input[type=text]{
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
       padding: .25em;
-      width: 50%;
+      width: 100%;
     }
 
     textarea {
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
       margin: .5em 0;
       padding: .25em;
-      width: 50%;
+      width: 100%;
     }
 
     input[type=submit] {

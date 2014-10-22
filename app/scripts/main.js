@@ -4,6 +4,10 @@ var template = _.template($('#postTemplate').html());
 
   $('input[type=submit]').on('click', function (event) {
     event.preventDefault();
+
+    var sentAt = new Date();
+    postObject['sentAt'] = sentAt;
+
     var postName    =  $('input.field').serializeArray();
     var postWords =  $('textarea.field').serializeArray();
     //Turn everything into an array of js objects and not DOM objects
@@ -29,15 +33,18 @@ var template = _.template($('#postTemplate').html());
 
     $.ajax( {url: apiUrl} ).done(function (allPosts) {
 
-      var compiledTemplate = _.map(allPosts, function (postTemplate) {
-          if (_.isUndefined(postTemplate.post)){
-            postTemplate.post = " "
-          }
-          if (_.isUndefined(postTemplate.title)){
-            postTemplate.title = " "
-          }
-        return template(postTemplate)
-      });
+       var compiledTemplate = _.map(allPosts, function (postTemplate) {
+           if (_.isUndefined(postTemplate.post)){
+             postTemplate.post = " "
+           }
+           if (_.isUndefined(postTemplate.title)){
+             postTemplate.title = " "
+           }
+           if (_.isUndefined(postTemplate.sentAt)){
+             postTemplate.sentAt = " "
+           }
+         return template(postTemplate)
+       });
 
 
     $('#postContainer').html(compiledTemplate);
