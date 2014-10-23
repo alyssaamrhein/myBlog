@@ -1,51 +1,45 @@
-var apiUrl   = 'http://tiny-pizza-server.herokuapp.com/collections/wordsfromalyssa';
-var postObject = {}; // Create me an empty object
+var apiUrl   = 'http://tiny-pizza-server.herokuapp.com/collections/wordsfrompeople';
 var template = _.template($('#postTemplate').html());
 
-  $('input[type=submit]').on('click', function (event) {
+var Post = function (attributes) {
+  return _.extend({
+    sentAt: new Date(),
+    title: 'title goes here',
+    post: 'a blog post',
+  }, attributes);
+};
+
+$('input[type=submit]').on('click', function (event) {
     event.preventDefault();
 
-    var sentAt = new Date();
-    postObject['sentAt'] = sentAt;
-
-    var postName    =  $('input.field').serializeArray();
-    var postWords =  $('textarea.field').serializeArray();
+    var postName    =  $('input.field, textarea.field').serializeArray();
     //Turn everything into an array of js objects and not DOM objects
+    var postObject = new Post();
 
     postName.forEach(function (postTitle) {
       postObject[postTitle.name] = postTitle.value;
     });
-
-    postWords.forEach(function (postContent) {
-      postObject[postContent.name] = postContent.value;
-    });
-
-    // I know theres a bette rwayt o do this but I couldnt figure it out :(
 
     $.ajax({
       method: 'POST',
       url: apiUrl,
       data: postObject
       //Send a POST request to our API to save the data from the form.
-    }).done(function (data) { $('input.field').val('') });
+    }).done(function (data) {
+      $('input.field, textarea.field').val('')
+    });
     //Clear all the data in the form after its done.
-    });
+});
 
-    $.ajax( {url: apiUrl} ).done(function (allPosts) {
+var getBlogPosts = function () {
+  $.ajax({url: apiUrl}).done(function (allPosts) {
 
-       var compiledTemplate = _.map(allPosts, function (postTemplate) {
-           if (_.isUndefined(postTemplate.post)){
-             postTemplate.post = " "
-           }
-           if (_.isUndefined(postTemplate.title)){
-             postTemplate.title = " "
-           }
-           if (_.isUndefined(postTemplate.sentAt)){
-             postTemplate.sentAt = " "
-           }
-         return template(postTemplate)
-       });
+     var compiledTemplate = _.map(allPosts, function (postTemplate) {
+       return template(new Post(postTemplate));
+     });
 
+     $('#postContainer').html(compiledTemplate);
+  });
+};
 
-    $('#postContainer').html(compiledTemplate);
-    });
+setInterval(getBlogPosts, 1000);
